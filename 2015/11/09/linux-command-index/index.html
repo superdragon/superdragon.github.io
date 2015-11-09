@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Linux,Linux命令,Linux命令索引," />
 
 
 
@@ -53,16 +53,22 @@
 
 
 
-<meta name="description" content="常用命令简写12345hexo n HelloHexo == hexo new HellHexo #新建文章hexo p == hexo publishhexo g == hexo generate #生成hexo s == hexo server #启动服务预览hexo d == hexo deploy #部署到gihub">
+<meta name="description" content="文件目录操作
+ls命令
+mkdir命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo-command">
-<meta property="og:url" content="http://yoursite.com/2015/11/05/hexo-command/index.html">
+<meta property="og:title" content="Linux命令文章索引">
+<meta property="og:url" content="http://yoursite.com/2015/11/09/linux-command-index/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="常用命令简写12345hexo n HelloHexo == hexo new HellHexo #新建文章hexo p == hexo publishhexo g == hexo generate #生成hexo s == hexo server #启动服务预览hexo d == hexo deploy #部署到gihub">
-<meta property="og:updated_time" content="2015-11-05T06:11:50.000Z">
+<meta property="og:description" content="文件目录操作
+ls命令
+mkdir命令">
+<meta property="og:updated_time" content="2015-11-09T16:23:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo-command">
-<meta name="twitter:description" content="常用命令简写12345hexo n HelloHexo == hexo new HellHexo #新建文章hexo p == hexo publishhexo g == hexo generate #生成hexo s == hexo server #启动服务预览hexo d == hexo deploy #部署到gihub">
+<meta name="twitter:title" content="Linux命令文章索引">
+<meta name="twitter:description" content="文件目录操作
+ls命令
+mkdir命令">
 
 
 
@@ -74,7 +80,7 @@
   };
 </script>
 
-  <title> hexo-command | DaLong’life </title>
+  <title> Linux命令文章索引 | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -210,7 +216,7 @@
             
             
               
-                hexo-command
+                Linux命令文章索引
               
             
           </h1>
@@ -219,8 +225,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T10:05:57+08:00" content="2015-11-05">
-              2015-11-05
+            <time itemprop="dateCreated" datetime="2015-11-09T23:45:18+08:00" content="2015-11-09">
+              2015-11-09
             </time>
           </span>
 
@@ -229,8 +235,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -245,8 +251,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/05/hexo-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/hexo-command/" itemprop="commentsCount"></span>
+                <a href="/2015/11/09/linux-command-index/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/linux-command-index/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -265,25 +271,10 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="常用命令简写">常用命令简写</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n HelloHexo == hexo <span class="keyword">new</span> HellHexo <span class="preprocessor">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate <span class="preprocessor">#生成</span></span><br><span class="line">hexo s == hexo <span class="keyword">server</span> <span class="preprocessor">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy <span class="preprocessor">#部署到gihub</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="服务器">服务器</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span> <span class="preprocessor">#Hexo会监视文件变动并自动更新，您无须重启服务器。</span></span><br><span class="line">hexo <span class="keyword">server</span> -s <span class="preprocessor">#静态模式</span></span><br><span class="line">hexo <span class="keyword">server</span> -p <span class="number">5000</span> <span class="preprocessor">#更改端口</span></span><br><span class="line">hexo <span class="keyword">server</span> -i <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span> <span class="preprocessor">#自定义IP</span></span><br><span class="line"></span><br><span class="line">hexo clean <span class="preprocessor">#清除缓存,网页正常情况下可以忽略此条命令</span></span><br><span class="line">hexo g <span class="preprocessor">#生成静态网页</span></span><br><span class="line">hexo d <span class="preprocessor">#部署到gihub</span></span><br></pre></td></tr></table></figure>
-<h3 id="监视文件变动">监视文件变动</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> generate <span class="comment">#使用 Hexo 生成静态文件快速而且简单</span></span><br><span class="line">hexo generate --watch <span class="comment">#监视文件变动</span></span><br></pre></td></tr></table></figure>
-<h3 id="草稿">草稿</h3><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish <span class="string">[layout]</span> &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="模板">模板</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: <span class="string">hexo-command</span></span><br><span class="line"><span class="attribute">date</span>: <span class="string">2015-11-05 10:05:57</span></span><br><span class="line"><span class="attribute">tags</span>: <span class="string">[Hexo]</span></span><br><span class="line"><span class="attribute">categories</span>: <span class="string">Hexo</span></span><br></pre></td></tr></table></figure>
-<h3 id="首页显示文章摘录">首页显示文章摘录</h3><ul>
-<li>在文章中使用 <!-- more --> 手动进行截断</li>
-<li>在文章的 front-matter 中添加 description，并提供文章摘录</li>
-</ul>
-<h3 id="标签和分类页面的统计数据不正确">标签和分类页面的统计数据不正确</h3><p>按照以下步骤更新数据：</p>
-<ol>
-<li>删除站点目录下的 db.json 文件.</li>
-<li>执行 hexo clean</li>
-<li>重新生成 hexo g</li>
+        <span itemprop="articleBody"><h3 id="文件目录操作">文件目录操作</h3><ol>
+<li><a href="/2015/11/05/linux-command-ls/">ls命令</a></li>
+<li><a href="/2015/11/05/linux-command-mkdir/">mkdir命令</a></li>
 </ol>
-<p>参考:</p>
-<p><a href="http://segmentfault.com/a/1190000002632530" target="_blank" rel="external">http://segmentfault.com/a/1190000002632530</a></p>
-<p><a href="http://theme-next.iissnan.com/faqs.html#首页显示文章摘录" target="_blank" rel="external">http://theme-next.iissnan.com/faqs.html#首页显示文章摘录</a></p>
 </span>
       
     </div>
@@ -292,7 +283,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/Linux命令/" rel="tag">#Linux命令</a>
+          
+            <a href="/tags/Linux命令索引/" rel="tag">#Linux命令索引</a>
           
         </div>
       
@@ -301,12 +296,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/11/05/linux-command-ls/" rel="next" title="Linux命令:文件目录操作(ls)">
+                <i class="fa fa-chevron-left"></i> Linux命令:文件目录操作(ls)
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/05/linux-command-ls/" rel="prev" title="Linux命令:文件目录操作(ls)">
-                Linux命令:文件目录操作(ls) <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/10/linux-command-mkdir/" rel="prev" title="Linux命令:文件目录操作(mkdir)">
+                Linux命令:文件目录操作(mkdir) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -334,8 +333,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/05/hexo-command/"
-           data-title="hexo-command" data-url="http://yoursite.com/2015/11/05/hexo-command/">
+      <div class="ds-thread" data-thread-key="2015/11/09/linux-command-index/"
+           data-title="Linux命令文章索引" data-url="http://yoursite.com/2015/11/09/linux-command-index/">
       </div>
     
   </div>
@@ -430,7 +429,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令简写"><span class="nav-number">1.</span> <span class="nav-text">常用命令简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器"><span class="nav-number">2.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监视文件变动"><span class="nav-number">3.</span> <span class="nav-text">监视文件变动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#草稿"><span class="nav-number">4.</span> <span class="nav-text">草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">5.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页显示文章摘录"><span class="nav-number">6.</span> <span class="nav-text">首页显示文章摘录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签和分类页面的统计数据不正确"><span class="nav-number">7.</span> <span class="nav-text">标签和分类页面的统计数据不正确</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录操作"><span class="nav-number">1.</span> <span class="nav-text">文件目录操作</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

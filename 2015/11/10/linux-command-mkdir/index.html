@@ -53,34 +53,25 @@
 
 
 
-<meta name="description" content="命令格式ls [选项] [目录名]
-命令功能列出目标目录中所有的子目录和文件。
+<meta name="description" content="命令格式mkdir [选项] 目录…
+命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--a 【–all 列出目录下的所有文件，包括以 . 开头的隐含文件】
--A 【同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)】
--l 【除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来】
--h 【–human-readable 以容易理解的格式列出文件大小(例如 1K">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令:文件目录操作(ls)">
-<meta property="og:url" content="http://yoursite.com/2015/11/05/linux-command-file-dir/index.html">
+<meta property="og:title" content="Linux命令:文件目录操作(mkdir)">
+<meta property="og:url" content="http://yoursite.com/2015/11/10/linux-command-mkdir/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="命令格式ls [选项] [目录名]
-命令功能列出目标目录中所有的子目录和文件。
+<meta property="og:description" content="命令格式mkdir [选项] 目录…
+命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--a 【–all 列出目录下的所有文件，包括以 . 开头的隐含文件】
--A 【同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)】
--l 【除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来】
--h 【–human-readable 以容易理解的格式列出文件大小(例如 1K">
-<meta property="og:updated_time" content="2015-11-05T04:59:35.000Z">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
+<meta property="og:updated_time" content="2015-11-09T16:20:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令:文件目录操作(ls)">
-<meta name="twitter:description" content="命令格式ls [选项] [目录名]
-命令功能列出目标目录中所有的子目录和文件。
+<meta name="twitter:title" content="Linux命令:文件目录操作(mkdir)">
+<meta name="twitter:description" content="命令格式mkdir [选项] 目录…
+命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--a 【–all 列出目录下的所有文件，包括以 . 开头的隐含文件】
--A 【同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)】
--l 【除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来】
--h 【–human-readable 以容易理解的格式列出文件大小(例如 1K">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
 
 
 
@@ -92,7 +83,7 @@
   };
 </script>
 
-  <title> Linux命令:文件目录操作(ls) | DaLong’life </title>
+  <title> Linux命令:文件目录操作(mkdir) | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -228,7 +219,7 @@
             
             
               
-                Linux命令:文件目录操作(ls)
+                Linux命令:文件目录操作(mkdir)
               
             
           </h1>
@@ -237,8 +228,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T11:28:12+08:00" content="2015-11-05">
-              2015-11-05
+            <time itemprop="dateCreated" datetime="2015-11-10T00:12:11+08:00" content="2015-11-10">
+              2015-11-10
             </time>
           </span>
 
@@ -263,8 +254,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/05/linux-command-file-dir/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/linux-command-file-dir/" itemprop="commentsCount"></span>
+                <a href="/2015/11/10/linux-command-mkdir/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-mkdir/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,18 +274,18 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="命令格式">命令格式</h3><p><em>ls [选项] [目录名]</em></p>
-<h3 id="命令功能">命令功能</h3><p>列出目标目录中所有的子目录和文件。</p>
+        <span itemprop="articleBody"><h3 id="命令格式">命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
+<h3 id="命令功能">命令功能</h3><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
 <h3 id="常用参数">常用参数</h3><ul>
-<li>-a 【–all 列出目录下的所有文件，包括以 . 开头的隐含文件】</li>
-<li>-A 【同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)】</li>
-<li>-l 【除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来】</li>
-<li>-h 【–human-readable 以容易理解的格式列出文件大小(例如 1K 234M 2G)】</li>
-<li>-S 【根据文件大小排序】<a id="more"></a>
-</li>
+<li>-m 【设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask】</li>
+<li>-p 【可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录】</li>
+<li>-v 【每次创建新目录都显示信息】</li>
 </ul>
-<h3 id="具体用法">具体用法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon webapps]<span class="preprocessor"># ls -lAh</span></span><br><span class="line">总用量 <span class="number">0</span></span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root <span class="number">1.8</span>K <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> docs</span><br><span class="line">-rw-r--r--. <span class="number">1</span> root root <span class="number">6.1</span>K <span class="number">10</span>月 <span class="number">31</span> <span class="number">17</span>:<span class="number">23</span> .DS_Store</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> examples</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">238</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> host-manager</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">170</span> <span class="number">10</span>月 <span class="number">28</span> <span class="number">15</span>:<span class="number">51</span> logs</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> manager</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">646</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> ROOT</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">10</span>月 <span class="number">31</span> <span class="number">17</span>:<span class="number">24</span> xwiki</span><br><span class="line">-rw-r--r--. <span class="number">1</span> root root <span class="number">217</span>M <span class="number">10</span>月 <span class="number">31</span> <span class="number">09</span>:<span class="number">59</span> xwiki.war</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon webapps]<span class="preprocessor"># ls -lSh</span></span><br><span class="line">总用量 <span class="number">0</span></span><br><span class="line">-rw-r--r--. <span class="number">1</span> root root <span class="number">217</span>M <span class="number">10</span>月 <span class="number">31</span> <span class="number">09</span>:<span class="number">59</span> xwiki.war</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root <span class="number">1.8</span>K <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> docs</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">646</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> ROOT</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> examples</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> manager</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">272</span> <span class="number">10</span>月 <span class="number">31</span> <span class="number">17</span>:<span class="number">24</span> xwiki</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">238</span> <span class="number">8</span>月  <span class="number">15</span> <span class="number">18</span>:<span class="number">42</span> host-manager</span><br><span class="line">drwxr-xr-x. <span class="number">1</span> root root  <span class="number">170</span> <span class="number">10</span>月 <span class="number">28</span> <span class="number">15</span>:<span class="number">51</span> logs</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="具体用法">具体用法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@bogon</span> opt]<span class="comment"># mkdir -vp test2/test3</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2"</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2/test3"</span></span><br></pre></td></tr></table></figure>
+<p>资料参考:</p>
+<p><a href="http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html</a></p>
 </span>
       
     </div>
@@ -314,8 +305,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/05/hexo-command/" rel="next" title="hexo-command">
-                <i class="fa fa-chevron-left"></i> hexo-command
+              <a href="/2015/11/09/linux-command-index/" rel="next" title="Linux命令文章索引">
+                <i class="fa fa-chevron-left"></i> Linux命令文章索引
               </a>
             
           </div>
@@ -347,8 +338,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/05/linux-command-file-dir/"
-           data-title="Linux命令:文件目录操作(ls)" data-url="http://yoursite.com/2015/11/05/linux-command-file-dir/">
+      <div class="ds-thread" data-thread-key="2015/11/10/linux-command-mkdir/"
+           data-title="Linux命令:文件目录操作(mkdir)" data-url="http://yoursite.com/2015/11/10/linux-command-mkdir/">
       </div>
     
   </div>
@@ -392,7 +383,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -406,7 +397,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
