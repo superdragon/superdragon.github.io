@@ -53,25 +53,25 @@
 
 
 
-<meta name="description" content="命令格式mkdir [选项] 目录…
+<meta name="description" content="mkdir 命令格式mkdir [选项] 目录…
 命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令:文件目录操作(mkdir)">
+<meta property="og:title" content="Linux命令:文件目录操作(mkdir/touch)">
 <meta property="og:url" content="http://yoursite.com/2015/11/10/linux-command-mkdir/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="命令格式mkdir [选项] 目录…
+<meta property="og:description" content="mkdir 命令格式mkdir [选项] 目录…
 命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
-<meta property="og:updated_time" content="2015-11-09T16:20:51.000Z">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
+<meta property="og:updated_time" content="2015-11-10T05:02:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令:文件目录操作(mkdir)">
-<meta name="twitter:description" content="命令格式mkdir [选项] 目录…
+<meta name="twitter:title" content="Linux命令:文件目录操作(mkdir/touch)">
+<meta name="twitter:description" content="mkdir 命令格式mkdir [选项] 目录…
 命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chmod)，而不">
+-m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
 
 
 
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title> Linux命令:文件目录操作(mkdir) | DaLong’life </title>
+  <title> Linux命令:文件目录操作(mkdir/touch) | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -219,7 +219,7 @@
             
             
               
-                Linux命令:文件目录操作(mkdir)
+                Linux命令:文件目录操作(mkdir/touch)
               
             
           </h1>
@@ -274,16 +274,19 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="命令格式">命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
-<h3 id="命令功能">命令功能</h3><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
-<h3 id="常用参数">常用参数</h3><ul>
+        <span itemprop="articleBody"><h3 id="mkdir_命令格式">mkdir 命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
+<h4 id="命令功能">命令功能</h4><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
+<h4 id="常用参数">常用参数</h4><ul>
 <li>-m 【设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask】</li>
 <li>-p 【可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录】</li>
 <li>-v 【每次创建新目录都显示信息】</li>
 </ul>
-<a id="more"></a>
-<h3 id="具体用法">具体用法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
+<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@bogon</span> opt]<span class="comment"># mkdir -vp test2/test3</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2"</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2/test3"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="touch_命令格式">touch 命令格式</h3><p><em>touch [选项]… 文件…</em></p>
+<h4 id="命令功能-1">命令功能</h4><p>创建一个或者多个文件。</p>
+<h4 id="具体用法-1">具体用法</h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># touch abc.txt abc1.txt</span></span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">abc1.txt  abc.txt  openresty  rh  test1  test2</span><br></pre></td></tr></table></figure>
 <p>资料参考:</p>
 <p><a href="http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html</a></p>
 </span>
@@ -313,6 +316,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2015/11/10/linux-command-rm/" rel="prev" title="Linux命令:文件目录操作(rm/cp/mv)">
+                Linux命令:文件目录操作(rm/cp/mv) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -339,7 +346,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/11/10/linux-command-mkdir/"
-           data-title="Linux命令:文件目录操作(mkdir)" data-url="http://yoursite.com/2015/11/10/linux-command-mkdir/">
+           data-title="Linux命令:文件目录操作(mkdir/touch)" data-url="http://yoursite.com/2015/11/10/linux-command-mkdir/">
       </div>
     
   </div>
@@ -383,7 +390,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -434,7 +441,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令格式"><span class="nav-number">1.</span> <span class="nav-text">命令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令功能"><span class="nav-number">2.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用参数"><span class="nav-number">3.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体用法"><span class="nav-number">4.</span> <span class="nav-text">具体用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir_命令格式"><span class="nav-number">1.</span> <span class="nav-text">mkdir 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能"><span class="nav-number">1.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用参数"><span class="nav-number">1.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法"><span class="nav-number">1.3.</span> <span class="nav-text">具体用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch_命令格式"><span class="nav-number">2.</span> <span class="nav-text">touch 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能-1"><span class="nav-number">2.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法-1"><span class="nav-number">2.2.</span> <span class="nav-text">具体用法</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
