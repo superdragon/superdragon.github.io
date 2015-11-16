@@ -53,25 +53,31 @@
 
 
 
-<meta name="description" content="mkdir 命令格式mkdir [选项] 目录…
-命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
+<meta name="description" content="cat 命令格式cat [选项] 文件…
+命令功能用来一次性的显示整个文件的内容。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
+-n 【–number 对输出的所有行编号,由1开始对所有输出的行数编号】
+
+具体用法12345678[root@bogon opt]# cat -n test.log1	第一行23	第二行，上面空一行45	第三行，再空一行6	第四行7	第五行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令:文件目录操作(mkdir/touch)">
-<meta property="og:url" content="http://yoursite.com/2015/11/10/linux-command-mkdir/index.html">
+<meta property="og:title" content="Linux命令:文件查看操作(cat/more/less/tail)">
+<meta property="og:url" content="http://yoursite.com/2015/11/16/linux-command-filelook/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="mkdir 命令格式mkdir [选项] 目录…
-命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
+<meta property="og:description" content="cat 命令格式cat [选项] 文件…
+命令功能用来一次性的显示整个文件的内容。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
-<meta property="og:updated_time" content="2015-11-10T05:02:43.000Z">
+-n 【–number 对输出的所有行编号,由1开始对所有输出的行数编号】
+
+具体用法12345678[root@bogon opt]# cat -n test.log1	第一行23	第二行，上面空一行45	第三行，再空一行6	第四行7	第五行">
+<meta property="og:updated_time" content="2015-11-16T07:59:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令:文件目录操作(mkdir/touch)">
-<meta name="twitter:description" content="mkdir 命令格式mkdir [选项] 目录…
-命令功能通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。
+<meta name="twitter:title" content="Linux命令:文件查看操作(cat/more/less/tail)">
+<meta name="twitter:description" content="cat 命令格式cat [选项] 文件…
+命令功能用来一次性的显示整个文件的内容。
 常用参数
--m 【设定权限&amp;lt;模式&amp;gt; (类似 chm">
+-n 【–number 对输出的所有行编号,由1开始对所有输出的行数编号】
+
+具体用法12345678[root@bogon opt]# cat -n test.log1	第一行23	第二行，上面空一行45	第三行，再空一行6	第四行7	第五行">
 
 
 
@@ -83,7 +89,7 @@
   };
 </script>
 
-  <title> Linux命令:文件目录操作(mkdir/touch) | DaLong’life </title>
+  <title> Linux命令:文件查看操作(cat/more/less/tail) | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -219,7 +225,7 @@
             
             
               
-                Linux命令:文件目录操作(mkdir/touch)
+                Linux命令:文件查看操作(cat/more/less/tail)
               
             
           </h1>
@@ -228,8 +234,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-10T00:12:11+08:00" content="2015-11-10">
-              2015-11-10
+            <time itemprop="dateCreated" datetime="2015-11-16T14:41:11+08:00" content="2015-11-16">
+              2015-11-16
             </time>
           </span>
 
@@ -254,8 +260,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/10/linux-command-mkdir/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-mkdir/" itemprop="commentsCount"></span>
+                <a href="/2015/11/16/linux-command-filelook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/linux-command-filelook/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -274,21 +280,49 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="mkdir_命令格式">mkdir 命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
-<h4 id="命令功能">命令功能</h4><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
+        <span itemprop="articleBody"><h3 id="cat_命令格式">cat 命令格式</h3><p><em>cat [选项] 文件…</em></p>
+<h4 id="命令功能">命令功能</h4><p>用来一次性的显示整个文件的内容。</p>
 <h4 id="常用参数">常用参数</h4><ul>
-<li>-m 【设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask】</li>
-<li>-p 【可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录】</li>
-<li>-v 【每次创建新目录都显示信息】</li>
+<li>-n 【–number 对输出的所有行编号,由1开始对所有输出的行数编号】</li>
 </ul>
-<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@bogon</span> opt]<span class="comment"># mkdir -vp test2/test3</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2"</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2/test3"</span></span><br></pre></td></tr></table></figure>
+<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># cat -n test.log</span></span><br><span class="line"><span class="number">1</span>	第一行</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span>	第二行，上面空一行</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span>	第三行，再空一行</span><br><span class="line"><span class="number">6</span>	第四行</span><br><span class="line"><span class="number">7</span>	第五行</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="touch_命令格式">touch 命令格式</h3><p><em>touch [选项]… 文件…</em></p>
-<h4 id="命令功能-1">命令功能</h4><p>创建一个或者多个文件。</p>
-<h4 id="具体用法-1">具体用法</h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># touch abc.txt abc1.txt</span></span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">abc1.txt  abc.txt  openresty  rh  test1  test2</span><br></pre></td></tr></table></figure>
-<p>资料参考:</p>
-<p><a href="http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html</a></p>
+<h3 id="more_命令格式">more 命令格式</h3><p><em>more [选项] 文件</em></p>
+<h4 id="命令功能-1">命令功能</h4><p>more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按<em>空白键（space）</em>就往下一页显示，按<em>b键</em>就会往回（back）一页显示，而且还有搜寻字串的功能 。more命令从前向后读取文件，因此在启动时就加载整个文件。</p>
+<h4 id="常用参数-1">常用参数</h4><ul>
+<li>+n 【从笫n行开始显示】</li>
+<li>-n 【定义屏幕大小为n行】</li>
+<li>+/pattern 【从出现第一个匹配关键字的前两行开始显示文件内容】</li>
+</ul>
+<h4 id="常用操作">常用操作</h4><ul>
+<li>Enter 【向下n行，需要定义。默认为1行】</li>
+<li>空格键 【向下滚动一屏】</li>
+<li>Ctrl+B 【返回上一屏】</li>
+<li>= 【输出当前行的行号】</li>
+<li>v 【调用vi编辑器】</li>
+<li>q 【退出more】</li>
+</ul>
+<h4 id="具体用法-1">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从第五行开始显示</span></span><br><span class="line">more +<span class="number">5</span> my-gitit.conf </span><br><span class="line"><span class="comment">//输入=，显示的内容</span></span><br><span class="line">my-gitit.conf lines <span class="number">16</span>-<span class="number">56</span>/<span class="number">297</span> byte <span class="number">2278</span>/<span class="number">12519</span> <span class="number">18</span>%  (press RETURN)</span><br><span class="line"><span class="comment">//从第一个匹配关键字的前两行显示 </span></span><br><span class="line">more +/<span class="keyword">static</span> my-gitit.conf</span><br></pre></td></tr></table></figure>
+<h3 id="less_命令格式">less 命令格式</h3><p><em>less [选项] 文件</em></p>
+<h4 id="命令功能-2">命令功能</h4><p>比less更强大，建议多用less，少用more。more的命令大部分都适用于less。</p>
+<h4 id="常用参数-2">常用参数</h4><ul>
+<li>-N 【显示行号】</li>
+<li>-n 【定义屏幕大小为n行】</li>
+<li>+/pattern 【从出现第一个匹配关键字的前两行开始显示文件内容】</li>
+</ul>
+<h4 id="常用操作-1">常用操作</h4><ul>
+<li>b 【向前翻一页】</li>
+<li>空格键 【向下翻一页】</li>
+<li>= 【输出当前行的行号】</li>
+<li>v 【调用vi编辑器】</li>
+<li>q 【退出less】</li>
+<li>G 【跳转到最后一行】</li>
+<li>g 【跳转到第一行】</li>
+<li>N 【向前跳转到匹配的关键字，和匹配关键字命令结合使用】</li>
+</ul>
+<h4 id="具体用法-2">具体用法</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//显示行号，并高亮显示匹配的关键字</span></span><br><span class="line">less -<span class="keyword">N</span> +/mathjax  my-gitit.<span class="keyword">conf</span></span><br><span class="line"><span class="comment">//和其他命令配合使用例子</span></span><br><span class="line">history | less</span><br></pre></td></tr></table></figure>
+<h3 id="tail_命令格式">tail 命令格式</h3><p><em>tail [选项] 文件</em></p>
+<h4 id="命令功能-3">命令功能</h4><p>常用命令<em>tail -f 文件名</em>，适合查看动态日志，例如tomcat日志</p>
 </span>
       
     </div>
@@ -308,16 +342,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/09/linux-command-index/" rel="next" title="Linux命令文章索引">
-                <i class="fa fa-chevron-left"></i> Linux命令文章索引
+              <a href="/2015/11/10/linux-command-rm/" rel="next" title="Linux命令:文件目录操作(rm/cp/mv)">
+                <i class="fa fa-chevron-left"></i> Linux命令:文件目录操作(rm/cp/mv)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/10/linux-command-rm/" rel="prev" title="Linux命令:文件目录操作(rm/cp/mv)">
-                Linux命令:文件目录操作(rm/cp/mv) <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/16/linx-command-df/" rel="prev" title="查看磁盘容量(df/du)">
+                查看磁盘容量(df/du) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -345,8 +379,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/10/linux-command-mkdir/"
-           data-title="Linux命令:文件目录操作(mkdir/touch)" data-url="http://yoursite.com/2015/11/10/linux-command-mkdir/">
+      <div class="ds-thread" data-thread-key="2015/11/16/linux-command-filelook/"
+           data-title="Linux命令:文件查看操作(cat/more/less/tail)" data-url="http://yoursite.com/2015/11/16/linux-command-filelook/">
       </div>
     
   </div>
@@ -441,7 +475,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir_命令格式"><span class="nav-number">1.</span> <span class="nav-text">mkdir 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能"><span class="nav-number">1.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用参数"><span class="nav-number">1.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法"><span class="nav-number">1.3.</span> <span class="nav-text">具体用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch_命令格式"><span class="nav-number">2.</span> <span class="nav-text">touch 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能-1"><span class="nav-number">2.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法-1"><span class="nav-number">2.2.</span> <span class="nav-text">具体用法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat_命令格式"><span class="nav-number">1.</span> <span class="nav-text">cat 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能"><span class="nav-number">1.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用参数"><span class="nav-number">1.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法"><span class="nav-number">1.3.</span> <span class="nav-text">具体用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more_命令格式"><span class="nav-number">2.</span> <span class="nav-text">more 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能-1"><span class="nav-number">2.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用参数-1"><span class="nav-number">2.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">2.3.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法-1"><span class="nav-number">2.4.</span> <span class="nav-text">具体用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less_命令格式"><span class="nav-number">3.</span> <span class="nav-text">less 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能-2"><span class="nav-number">3.1.</span> <span class="nav-text">命令功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用参数-2"><span class="nav-number">3.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作-1"><span class="nav-number">3.3.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体用法-2"><span class="nav-number">3.4.</span> <span class="nav-text">具体用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail_命令格式"><span class="nav-number">4.</span> <span class="nav-text">tail 命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令功能-3"><span class="nav-number">4.1.</span> <span class="nav-text">命令功能</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
