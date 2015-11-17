@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,Linux命令,Linux命令索引," />
+  <meta name="keywords" content="Nginx," />
 
 
 
@@ -53,37 +53,22 @@
 
 
 
-<meta name="description" content="操作文件目录
-ls 命令
-mkdir/touch 命令
-rm/cp/mv 命令
-cat/more/less/tail 命令
-
-查看磁盘容量
-df/du 命令">
+<meta name="description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
+默认配置代码：
+1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令文章索引">
-<meta property="og:url" content="http://yoursite.com/2015/11/09/linux-command-index/index.html">
+<meta property="og:title" content="第一个Openresty例子">
+<meta property="og:url" content="http://yoursite.com/2015/11/17/nginx-2/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="操作文件目录
-ls 命令
-mkdir/touch 命令
-rm/cp/mv 命令
-cat/more/less/tail 命令
-
-查看磁盘容量
-df/du 命令">
-<meta property="og:updated_time" content="2015-11-16T16:10:39.000Z">
+<meta property="og:description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
+默认配置代码：
+1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
+<meta property="og:updated_time" content="2015-11-17T03:10:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令文章索引">
-<meta name="twitter:description" content="操作文件目录
-ls 命令
-mkdir/touch 命令
-rm/cp/mv 命令
-cat/more/less/tail 命令
-
-查看磁盘容量
-df/du 命令">
+<meta name="twitter:title" content="第一个Openresty例子">
+<meta name="twitter:description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
+默认配置代码：
+1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
 
 
 
@@ -95,7 +80,7 @@ df/du 命令">
   };
 </script>
 
-  <title> Linux命令文章索引 | DaLong’life </title>
+  <title> 第一个Openresty例子 | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +216,7 @@ df/du 命令">
             
             
               
-                Linux命令文章索引
+                第一个Openresty例子
               
             
           </h1>
@@ -240,8 +225,8 @@ df/du 命令">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-09T23:45:18+08:00" content="2015-11-09">
-              2015-11-09
+            <time itemprop="dateCreated" datetime="2015-11-17T00:11:45+08:00" content="2015-11-17">
+              2015-11-17
             </time>
           </span>
 
@@ -250,8 +235,8 @@ df/du 命令">
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
                   </a>
                 </span>
 
@@ -266,8 +251,8 @@ df/du 命令">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/09/linux-command-index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/linux-command-index/" itemprop="commentsCount"></span>
+                <a href="/2015/11/17/nginx-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/nginx-2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -286,15 +271,30 @@ df/du 命令">
       
 
       
-        <span itemprop="articleBody"><h3 id="操作文件目录">操作文件目录</h3><ol>
-<li><a href="/2015/11/05/linux-command-ls/">ls 命令</a></li>
-<li><a href="/2015/11/10/linux-command-mkdir/">mkdir/touch 命令</a></li>
-<li><a href="/2015/11/10/linux-command-rm/">rm/cp/mv 命令</a></li>
-<li><a href="/2015/11/16/linux-command-filelook/">cat/more/less/tail 命令</a></li>
-</ol>
-<h3 id="查看磁盘容量">查看磁盘容量</h3><ol>
-<li><a href="/2015/11/16/linux-command-df/">df/du 命令</a></li>
-</ol>
+        <span itemprop="articleBody"><h3 id="运行openresty的默认配置">运行openresty的默认配置</h3><p>openresty 默认安装nginx的路径是 <em>/usr/local/openresty/nginx</em>。当启动nginx时，默认加载的配置文件是 <em>/usr/local/openresty/nginx/conf/nginx.conf</em>。</p>
+<p>默认配置代码：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建1个进程，一般根据服务器CPU核数设置，比如4核，可以设置为4.</span></span><br><span class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="comment">#nginx运行错误日志路径，默认在 /usr/local/openresty/nginx/logs/erro.log</span></span><br><span class="line"><span class="comment">#可以通过 tail -f 日志路径，查看nginx的实时日志。</span></span><br><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">server</span> &#123;</span><br><span class="line">        <span class="comment">#监听80端口</span></span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="comment">#匹配任何路径</span></span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">            <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">            <span class="comment">#运行lua代码</span></span><br><span class="line">            <span class="title">content_by_lua</span> <span class="string">'ngx.say("hello openresty")'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行nginx</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#默认读取 <span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/conf/</span>nginx.conf</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx</span><br></pre></td></tr></table></figure>
+<p>在浏览器上输入<a href="http://localhost，界面显示" target="_blank" rel="external">http://localhost，界面显示</a> <em>hello openresty</em> 表示nginx运行成功。</p>
+<a id="more"></a>
+<h3 id="用_inclued_命令分模块写配置文件">用 inclued 命令分模块写配置文件</h3><p>在 <em>/usr/local/openresty/nginx/conf/</em> 目录下创建 <em>luaconf</em> 目录，把每个独立模块的配置放在此目录，修改 <em>nginx.conf</em> 文件，如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">include</span>       mime.types;</span><br><span class="line">    <span class="title">default_type</span>  text/html;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#可以是相对路径或绝对路径，相对路径是相对于当前nginx.conf存放的目录。</span></span><br><span class="line">    <span class="title">include</span> luaconf/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 luaconf 目录中创建 lua.conf 文件，配置如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">    <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="title">server_name</span>  _;</span><br><span class="line">    <span class="title">location</span> /lua &#123;</span><br><span class="line">        <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">        <span class="title">content_by_lua</span> <span class="string">'ngx.say("&lt;b&gt;hello openresty&lt;/b&gt;")'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title">location</span> / &#123;</span><br><span class="line">        <span class="title">default_type</span> text/html;</span><br><span class="line">        <span class="title">content_by_lua</span> <span class="string">'</span><br><span class="line">            ngx.say("&lt;p&gt;hello, world&lt;/p&gt;")</span><br><span class="line">        '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命令nginx重新载入配置</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#测试最新的nginx配置是否正确</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx -t</span><br><span class="line">#重新加载配置</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx -s reload</span><br></pre></td></tr></table></figure>
+<p>在浏览器输入 <a href="http://localhost，页面显示" target="_blank" rel="external">http://localhost，页面显示</a> hello, world。</p>
+<p>在浏览器输入 <a href="http://localhost/lua，页面显示" target="_blank" rel="external">http://localhost/lua，页面显示</a> hello openresty。</p>
+<h3 id="利用lua脚本写处理请求逻辑">利用lua脚本写处理请求逻辑</h3><p>在 <em>/usr/local/openresty/nginx/conf/</em> 目录下创建 <em>myluas</em> 目录，把每个独立模块的配置放在此目录，修改 <em>nginx.conf</em> 文件，如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">include</span>       mime.types;</span><br><span class="line">    <span class="title">default_type</span>  text/html;</span><br><span class="line"></span><br><span class="line">    <span class="title">server</span> &#123;</span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="title">server_name</span>  _;</span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">            <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">            <span class="title">lua_code_cache</span> <span class="built_in">off</span>;</span><br><span class="line">            <span class="comment">#这里用的绝对路径</span></span><br><span class="line">            <span class="title">content_by_lua_file</span> /usr/local/openresty/nginx/conf/myluas/test.lua;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里需要注意两个地方：</p>
+<p>第一个：<em>lua_code_cache off</em> 在测试期间可以关闭缓存lua脚本，便于不用每次修改lua脚本，重新命令nginx加载配置。一旦关闭，nginx会提示警告，可以忽略。警告内容如下：</p>
+<p><em>nginx: [alert] lua_code_cache is off; this will hurt performance in /usr/local/openresty/nginx/conf/nginx.conf:15</em></p>
+<p>第二个：<em>content_by_lua_file</em> 如果写相对路径时，要注意，此相对路径的是针对nginx的安装目录，即 /usr/local/openresty/nginx/。所以，如果写相对路径，应该写成 conf/myluas/test.lua。</p>
+<p>在 myluas 目录创建test.lua文件，内容如下：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngx.<span class="command">say</span>(<span class="string">"hello openresty lua"</span>);</span><br></pre></td></tr></table></figure>
+<p>在浏览器输入 <a href="http://localhost，页面显示" target="_blank" rel="external">http://localhost，页面显示</a> hello openresty lua。</p>
 </span>
       
     </div>
@@ -303,11 +303,7 @@ df/du 命令">
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
-          
-            <a href="/tags/Linux命令/" rel="tag">#Linux命令</a>
-          
-            <a href="/tags/Linux命令索引/" rel="tag">#Linux命令索引</a>
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
           
         </div>
       
@@ -316,17 +312,13 @@ df/du 命令">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/05/linux-command-ls/" rel="next" title="Linux命令:文件目录操作(ls)">
-                <i class="fa fa-chevron-left"></i> Linux命令:文件目录操作(ls)
+              <a href="/2015/11/17/nginx-1/" rel="next" title="nginx-1">
+                <i class="fa fa-chevron-left"></i> nginx-1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/10/linux-command-mkdir/" rel="prev" title="Linux命令:文件目录操作(mkdir/touch)">
-                Linux命令:文件目录操作(mkdir/touch) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -353,8 +345,8 @@ df/du 命令">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/09/linux-command-index/"
-           data-title="Linux命令文章索引" data-url="http://yoursite.com/2015/11/09/linux-command-index/">
+      <div class="ds-thread" data-thread-key="2015/11/17/nginx-2/"
+           data-title="第一个Openresty例子" data-url="http://yoursite.com/2015/11/17/nginx-2/">
       </div>
     
   </div>
@@ -449,7 +441,7 @@ df/du 命令">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作文件目录"><span class="nav-number">1.</span> <span class="nav-text">操作文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看磁盘容量"><span class="nav-number">2.</span> <span class="nav-text">查看磁盘容量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行openresty的默认配置"><span class="nav-number">1.</span> <span class="nav-text">运行openresty的默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用_inclued_命令分模块写配置文件"><span class="nav-number">2.</span> <span class="nav-text">用 inclued 命令分模块写配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用lua脚本写处理请求逻辑"><span class="nav-number">3.</span> <span class="nav-text">利用lua脚本写处理请求逻辑</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

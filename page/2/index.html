@@ -211,6 +211,322 @@
             
             
               
+                <a class="post-title-link" href="/2015/11/10/linux-command-rm/" itemprop="url">
+                  Linux命令:文件目录操作(rm/cp/mv)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T12:57:13+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/10/linux-command-rm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-rm/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="rm_命令格式">rm 命令格式</h3><p><em>rm [选项] 文件…</em></p>
+<h4 id="命令功能">命令功能</h4><p>删除一个目录中的一个或多个文件或目录，如果没有使用- r选项，则rm不会删除目录。</p>
+<h4 id="常用参数">常用参数</h4><ul>
+<li>-f 【–force 忽略不存在的文件，从不给出提示】</li>
+<li>-r 【–recursive 指示rm将参数中列出的全部目录和子目录均递归地删除】</li>
+</ul>
+<h4 id="具体用法">具体用法</h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">abc1.txt  abc.txt  openresty  rh  test1  test2</span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># rm -rf abc*</span></span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">openresty  rh  test1  test2</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/linux-command-rm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/11/10/linux-command-mkdir/" itemprop="url">
+                  Linux命令:文件目录操作(mkdir/touch)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T00:12:11+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/10/linux-command-mkdir/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-mkdir/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="mkdir_命令格式">mkdir 命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
+<h4 id="命令功能">命令功能</h4><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
+<h4 id="常用参数">常用参数</h4><ul>
+<li>-m 【设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask】</li>
+<li>-p 【可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录】</li>
+<li>-v 【每次创建新目录都显示信息】</li>
+</ul>
+<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@bogon</span> opt]<span class="comment"># mkdir -vp test2/test3</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2"</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2/test3"</span></span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/linux-command-mkdir/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/11/09/linux-command-index/" itemprop="url">
+                  Linux命令文章索引
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-09T23:45:18+08:00" content="2015-11-09">
+              2015-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/09/linux-command-index/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/linux-command-index/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h3 id="操作文件目录">操作文件目录</h3><ol>
+<li><a href="/2015/11/05/linux-command-ls/">ls 命令</a></li>
+<li><a href="/2015/11/10/linux-command-mkdir/">mkdir/touch 命令</a></li>
+<li><a href="/2015/11/10/linux-command-rm/">rm/cp/mv 命令</a></li>
+<li><a href="/2015/11/16/linux-command-filelook/">cat/more/less/tail 命令</a></li>
+</ol>
+<h3 id="查看磁盘容量">查看磁盘容量</h3><ol>
+<li><a href="/2015/11/16/linux-command-df/">df/du 命令</a></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/11/05/linux-command-ls/" itemprop="url">
                   Linux命令:文件目录操作(ls)
                 </a>
@@ -444,21 +760,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
