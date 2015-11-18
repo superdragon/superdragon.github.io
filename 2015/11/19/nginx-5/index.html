@@ -53,22 +53,31 @@
 
 
 
-<meta name="description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
-默认配置代码：
-1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
+<meta name="description" content="简介Nginx默认没有开启利用多核cpu，我们可以通过增加worker_cpu_affinity配置参数来充分利用多核cpu的性能。cpu是任务处理，计算最关键的资源，cpu核越多，性能就越好。
+规则设定
+cpu有多少个核，就有几位数，1代表内核开启，0代表内核关闭
+worker_processes最多开启8个，8个以上性能就不会再提升了，而且稳定性会变的更低，因此8个进程够用了
+
+示例：lino">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个Openresty例子">
-<meta property="og:url" content="http://yoursite.com/2015/11/17/nginx-2/index.html">
+<meta property="og:title" content="通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载)">
+<meta property="og:url" content="http://yoursite.com/2015/11/19/nginx-5/index.html">
 <meta property="og:site_name" content="DaLong’life">
-<meta property="og:description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
-默认配置代码：
-1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
-<meta property="og:updated_time" content="2015-11-17T03:10:20.000Z">
+<meta property="og:description" content="简介Nginx默认没有开启利用多核cpu，我们可以通过增加worker_cpu_affinity配置参数来充分利用多核cpu的性能。cpu是任务处理，计算最关键的资源，cpu核越多，性能就越好。
+规则设定
+cpu有多少个核，就有几位数，1代表内核开启，0代表内核关闭
+worker_processes最多开启8个，8个以上性能就不会再提升了，而且稳定性会变的更低，因此8个进程够用了
+
+示例：lino">
+<meta property="og:updated_time" content="2015-11-18T16:45:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一个Openresty例子">
-<meta name="twitter:description" content="运行openresty的默认配置openresty 默认安装nginx的路径是 /usr/local/openresty/nginx。当启动nginx时，默认加载的配置文件是 /usr/local/openresty/nginx/conf/nginx.conf。
-默认配置代码：
-1234567891011121314151617181920#创建1个进程，一般根据服务器CPU核数设置，比如4核，可">
+<meta name="twitter:title" content="通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载)">
+<meta name="twitter:description" content="简介Nginx默认没有开启利用多核cpu，我们可以通过增加worker_cpu_affinity配置参数来充分利用多核cpu的性能。cpu是任务处理，计算最关键的资源，cpu核越多，性能就越好。
+规则设定
+cpu有多少个核，就有几位数，1代表内核开启，0代表内核关闭
+worker_processes最多开启8个，8个以上性能就不会再提升了，而且稳定性会变的更低，因此8个进程够用了
+
+示例：lino">
 
 
 
@@ -80,7 +89,7 @@
   };
 </script>
 
-  <title> 第一个Openresty例子 | DaLong’life </title>
+  <title> 通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载) | DaLong’life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +225,7 @@
             
             
               
-                第一个Openresty例子
+                通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载)
               
             
           </h1>
@@ -225,8 +234,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-17T00:11:45+08:00" content="2015-11-17">
-              2015-11-17
+            <time itemprop="dateCreated" datetime="2015-11-19T23:49:25+08:00" content="2015-11-19">
+              2015-11-19
             </time>
           </span>
 
@@ -251,8 +260,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/17/nginx-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/nginx-2/" itemprop="commentsCount"></span>
+                <a href="/2015/11/19/nginx-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/19/nginx-5/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -271,30 +280,27 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="运行openresty的默认配置">运行openresty的默认配置</h3><p>openresty 默认安装nginx的路径是 <em>/usr/local/openresty/nginx</em>。当启动nginx时，默认加载的配置文件是 <em>/usr/local/openresty/nginx/conf/nginx.conf</em>。</p>
-<p>默认配置代码：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建1个进程，一般根据服务器CPU核数设置，比如4核，可以设置为4.</span></span><br><span class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="comment">#nginx运行错误日志路径，默认在 /usr/local/openresty/nginx/logs/erro.log</span></span><br><span class="line"><span class="comment">#可以通过 tail -f 日志路径，查看nginx的实时日志。</span></span><br><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">server</span> &#123;</span><br><span class="line">        <span class="comment">#监听80端口</span></span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="comment">#匹配任何路径</span></span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">            <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">            <span class="comment">#运行lua代码</span></span><br><span class="line">            <span class="title">content_by_lua</span> <span class="string">'ngx.say("hello openresty")'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行nginx</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#默认读取 <span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/conf/</span>nginx.conf</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx</span><br></pre></td></tr></table></figure>
-<p>在浏览器上输入<a href="http://localhost，界面显示" target="_blank" rel="external">http://localhost，界面显示</a> <em>hello openresty</em> 表示nginx运行成功。</p>
+        <span itemprop="articleBody"><h3 id="简介">简介</h3><p>Nginx默认没有开启利用多核cpu，我们可以通过增加worker_cpu_affinity配置参数来充分利用多核cpu的性能。cpu是任务处理，计算最关键的资源，cpu核越多，性能就越好。</p>
+<h3 id="规则设定">规则设定</h3><ol>
+<li>cpu有多少个核，就有几位数，1代表内核开启，0代表内核关闭</li>
+<li>worker_processes最多开启8个，8个以上性能就不会再提升了，而且稳定性会变的更低，因此8个进程够用了</li>
+</ol>
+<p>示例：linode VPS 最低配，8核CPU，nginx配置信息：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">worker_processes <span class="number">8</span>;</span><br><span class="line">worker_cpu_affinity <span class="number">00000001</span> <span class="number">00000010</span> <span class="number">00000100</span> <span class="number">00001000</span> <span class="number">00010000</span> <span class="number">00100000</span> <span class="number">01000000</span> <span class="number">10000000</span>;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="用_inclued_命令分模块写配置文件">用 inclued 命令分模块写配置文件</h3><p>在 <em>/usr/local/openresty/nginx/conf/</em> 目录下创建 <em>luaconf</em> 目录，把每个独立模块的配置放在此目录，修改 <em>nginx.conf</em> 文件，如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">include</span>       mime.types;</span><br><span class="line">    <span class="title">default_type</span>  text/html;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#可以是相对路径或绝对路径，相对路径是相对于当前nginx.conf存放的目录。</span></span><br><span class="line">    <span class="title">include</span> luaconf/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 luaconf 目录中创建 lua.conf 文件，配置如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">    <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="title">server_name</span>  _;</span><br><span class="line">    <span class="title">location</span> /lua &#123;</span><br><span class="line">        <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">        <span class="title">content_by_lua</span> <span class="string">'ngx.say("&lt;b&gt;hello openresty&lt;/b&gt;")'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title">location</span> / &#123;</span><br><span class="line">        <span class="title">default_type</span> text/html;</span><br><span class="line">        <span class="title">content_by_lua</span> <span class="string">'</span><br><span class="line">            ngx.say("&lt;p&gt;hello, world&lt;/p&gt;")</span><br><span class="line">        '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>命令nginx重新载入配置</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#测试最新的nginx配置是否正确</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx -t</span><br><span class="line">#重新加载配置</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx -s reload</span><br></pre></td></tr></table></figure>
-<p>在浏览器输入 <a href="http://localhost，页面显示" target="_blank" rel="external">http://localhost，页面显示</a> hello, world。</p>
-<p>在浏览器输入 <a href="http://localhost/lua，页面显示" target="_blank" rel="external">http://localhost/lua，页面显示</a> hello openresty。</p>
-<h3 id="利用lua脚本写处理请求逻辑">利用lua脚本写处理请求逻辑</h3><p>在 <em>/usr/local/openresty/nginx/conf/</em> 目录下创建 <em>myluas</em> 目录，把每个独立模块的配置放在此目录，修改 <em>nginx.conf</em> 文件，如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">include</span>       mime.types;</span><br><span class="line">    <span class="title">default_type</span>  text/html;</span><br><span class="line"></span><br><span class="line">    <span class="title">server</span> &#123;</span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="title">server_name</span>  _;</span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">            <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">            <span class="title">lua_code_cache</span> <span class="built_in">off</span>;</span><br><span class="line">            <span class="comment">#这里用的绝对路径</span></span><br><span class="line">            <span class="title">content_by_lua_file</span> /usr/local/openresty/nginx/conf/myluas/test.lua;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里需要注意两个地方：</p>
-<p>第一个：<em>lua_code_cache off</em> 在测试期间可以关闭缓存lua脚本，便于不用每次修改lua脚本，重新命令nginx加载配置。一旦关闭，nginx会提示警告，可以忽略。警告内容如下：</p>
-<p><em>nginx: [alert] lua_code_cache is off; this will hurt performance in /usr/local/openresty/nginx/conf/nginx.conf:15</em></p>
-<p>第二个：<em>content_by_lua_file</em> 如果写相对路径时，要注意，此相对路径的是针对nginx的安装目录，即 /usr/local/openresty/nginx/。所以，如果写相对路径，应该写成 conf/myluas/test.lua。</p>
-<p>在 myluas 目录创建test.lua文件，内容如下：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngx.<span class="command">say</span>(<span class="string">"hello openresty lua"</span>);</span><br></pre></td></tr></table></figure>
-<p>在浏览器输入 <a href="http://localhost，页面显示" target="_blank" rel="external">http://localhost，页面显示</a> hello openresty lua。</p>
+<p>CPU工作状况：（输入 top 后，按1 查看）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@iZ25kaxqy4qZ:~<span class="preprocessor"># top</span></span><br><span class="line">top - <span class="number">00</span>:<span class="number">36</span>:<span class="number">55</span> up <span class="number">117</span> days,  <span class="number">6</span>:<span class="number">29</span>,  <span class="number">1</span> user,  load average: <span class="number">0.00</span>, <span class="number">0.01</span>, <span class="number">0.05</span></span><br><span class="line">Tasks:  <span class="number">95</span> total,   <span class="number">1</span> running,  <span class="number">94</span> sleeping,   <span class="number">0</span> stopped,   <span class="number">0</span> zombie</span><br><span class="line">Cpu0  :  <span class="number">0.0</span>%us,  <span class="number">0.0</span>%sy,  <span class="number">0.0</span>%ni,<span class="number">100.0</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si,  <span class="number">0.0</span>%st</span><br><span class="line">Cpu1  :  <span class="number">0.0</span>%us,  <span class="number">0.0</span>%sy,  <span class="number">0.0</span>%ni,<span class="number">100.0</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si,  <span class="number">0.0</span>%st</span><br><span class="line">Cpu2  :  <span class="number">0.0</span>%us,  <span class="number">0.0</span>%sy,  <span class="number">0.0</span>%ni,<span class="number">100.0</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si,  <span class="number">0.0</span>%st</span><br><span class="line">Cpu3  :  <span class="number">0.3</span>%us,  <span class="number">0.0</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">99.7</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si,  <span class="number">0.0</span>%st</span><br><span class="line">Mem:   <span class="number">3786340</span>k total,  <span class="number">3671056</span>k used,   <span class="number">115284</span>k <span class="built_in">free</span>,   <span class="number">114788</span>k buffers</span><br><span class="line">Swap:        <span class="number">0</span>k total,        <span class="number">0</span>k used,        <span class="number">0</span>k <span class="built_in">free</span>,   <span class="number">542520</span>k cached</span><br></pre></td></tr></table></figure>
+<p>上面的配置表示：8核CPU，开启8个进程。00000001表示开启第一个cpu内核，00000010表示开启第二个cpu内核，依次类推；有多少个核，就有几位数，1表示该内核开启，0表示该内核关闭。</p>
+<h3 id="配置实例">配置实例</h3><h4 id="2核CPU，开启2个进程">2核CPU，开启2个进程</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  <span class="number">2</span>;  </span><br><span class="line">worker_cpu_affinity <span class="number">01</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="2核CPU，开启4进程">2核CPU，开启4进程</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">worker_processes <span class="number">4</span>;</span><br><span class="line">worker_cpu_affinity <span class="number">01</span> <span class="number">10</span> <span class="number">01</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="2核CPU，开启8进程">2核CPU，开启8进程</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  <span class="number">8</span>;  </span><br><span class="line">worker_cpu_affinity <span class="number">01</span> <span class="number">10</span> <span class="number">01</span> <span class="number">10</span> <span class="number">01</span> <span class="number">10</span> <span class="number">01</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="8核CPU，开启2进程">8核CPU，开启2进程</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  <span class="number">2</span>;  </span><br><span class="line">worker_cpu_affinity <span class="number">10101010</span> <span class="number">01010101</span>;</span><br></pre></td></tr></table></figure>
+<p>说明：10101010表示开启了第2,4,6,8内核，01010101表示开始了1,3,5,7内核 </p>
+<p>通过apache 的ab测试查看nginx对CPU的使用状况：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">top - <span class="number">11</span>:<span class="number">25</span>:<span class="number">53</span> up <span class="number">39</span> days,  <span class="number">1</span>:<span class="number">25</span>,  <span class="number">2</span> users,  load average: <span class="number">0.33</span>, <span class="number">0.11</span>, <span class="number">0.09</span></span><br><span class="line">Tasks: <span class="number">133</span> total,   <span class="number">3</span> running, <span class="number">130</span> sleeping,   <span class="number">0</span> stopped,   <span class="number">0</span> zombie</span><br><span class="line">Cpu0  :  <span class="number">2.3</span>%us,  <span class="number">0.9</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">82.7</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">14.1</span>%st</span><br><span class="line">Cpu1  :  <span class="number">1.7</span>%us,  <span class="number">0.6</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">81.8</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">16.0</span>%st</span><br><span class="line">Cpu2  :  <span class="number">2.8</span>%us,  <span class="number">1.9</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">74.4</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">20.9</span>%st</span><br><span class="line">Cpu3  :  <span class="number">2.0</span>%us,  <span class="number">0.9</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">83.0</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">14.0</span>%st</span><br><span class="line">Cpu4  :  <span class="number">2.2</span>%us,  <span class="number">0.8</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">79.3</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">17.6</span>%st</span><br><span class="line">Cpu5  :  <span class="number">3.6</span>%us,  <span class="number">1.1</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">75.9</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">19.5</span>%st</span><br><span class="line">Cpu6  :  <span class="number">2.1</span>%us,  <span class="number">0.9</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">87.2</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si,  <span class="number">9.8</span>%st</span><br><span class="line">Cpu7  :  <span class="number">1.7</span>%us,  <span class="number">0.6</span>%sy,  <span class="number">0.0</span>%ni, <span class="number">80.6</span>%id,  <span class="number">0.0</span>%wa,  <span class="number">0.0</span>%hi,  <span class="number">0.0</span>%si, <span class="number">17.1</span>%st</span><br><span class="line">Mem:   <span class="number">1024884</span>k total,   <span class="number">891020</span>k used,   <span class="number">133864</span>k <span class="built_in">free</span>,   <span class="number">144912</span>k buffers</span><br><span class="line">Swap:   <span class="number">262140</span>k total,     <span class="number">4172</span>k used,   <span class="number">257968</span>k <span class="built_in">free</span>,   <span class="number">434244</span>k cached</span><br></pre></td></tr></table></figure>
+<p>如果多个CPU内核的利用率都相差不多，证明nginx己经成功的利用了多核CPU。</p>
+<p>测试结束后，CPU内核的负载应该都同时降低。 </p>
+<p>文章出处：<a href="http://www.php230.com/set-worker-cpu-affinity-to-up-nginx-performance.html" target="_blank" rel="external">http://www.php230.com/set-worker-cpu-affinity-to-up-nginx-performance.html</a></p>
 </span>
       
     </div>
@@ -312,17 +318,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/17/nginx-1/" rel="next" title="nginx-1">
-                <i class="fa fa-chevron-left"></i> nginx-1
+              <a href="/2015/11/19/linux-command-computerinfo/" rel="next" title="Linux查看硬件信息">
+                <i class="fa fa-chevron-left"></i> Linux查看硬件信息
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/17/linux-command-tar/" rel="prev" title="Linux命令:文件目录打包压缩(tar)">
-                Linux命令:文件目录打包压缩(tar) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -349,8 +351,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/17/nginx-2/"
-           data-title="第一个Openresty例子" data-url="http://yoursite.com/2015/11/17/nginx-2/">
+      <div class="ds-thread" data-thread-key="2015/11/19/nginx-5/"
+           data-title="通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载)" data-url="http://yoursite.com/2015/11/19/nginx-5/">
       </div>
     
   </div>
@@ -445,7 +447,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行openresty的默认配置"><span class="nav-number">1.</span> <span class="nav-text">运行openresty的默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用_inclued_命令分模块写配置文件"><span class="nav-number">2.</span> <span class="nav-text">用 inclued 命令分模块写配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用lua脚本写处理请求逻辑"><span class="nav-number">3.</span> <span class="nav-text">利用lua脚本写处理请求逻辑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则设定"><span class="nav-number">2.</span> <span class="nav-text">规则设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置实例"><span class="nav-number">3.</span> <span class="nav-text">配置实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2核CPU，开启2个进程"><span class="nav-number">3.1.</span> <span class="nav-text">2核CPU，开启2个进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2核CPU，开启4进程"><span class="nav-number">3.2.</span> <span class="nav-text">2核CPU，开启4进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2核CPU，开启8进程"><span class="nav-number">3.3.</span> <span class="nav-text">2核CPU，开启8进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8核CPU，开启2进程"><span class="nav-number">3.4.</span> <span class="nav-text">8核CPU，开启2进程</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

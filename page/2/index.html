@@ -211,6 +211,410 @@
             
             
               
+                <a class="post-title-link" href="/2015/11/17/linux-command-tar/" itemprop="url">
+                  Linux命令:文件目录打包压缩(tar)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T11:24:48+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/linux-command-tar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/linux-command-tar/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="tar_命令格式">tar 命令格式</h3><p><em>tar[必要参数][选择参数][文件]</em></p>
+<h4 id="命令功能">命令功能</h4><p>tar命令可以为linux的文件和目录创建档案。利用tar，可以为某一特定文件创建档案（备份文件），也可以在档案中改变文件，或者向档案中加入新的文件。tar最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文件或将几个文件组合成为一个文件以便于网络传输是非常有用的。</p>
+<p>首先要弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件。<br>为什么要区分这两个概念呢？这源于Linux中很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你得先将这一大堆文件先打成一个包（tar命令），然后再用压缩程序进行压缩（gzip bzip2命令）。</p>
+<p>linux下最常用的打包程序就是tar了，使用tar程序打出来的包我们常称为tar包，tar包文件的命令通常都是以.tar结尾的。生成tar包后，就可以用其它的程序来进行压缩。</p>
+<p>用来压缩和解压文件。tar本身不具有压缩功能。他是调用压缩功能实现的。</p>
+<h4 id="常用参数">常用参数</h4><ul>
+<li>-c 【建立新的压缩文件】</li>
+<li>-x 【从压缩的文件中提取文件】</li>
+<li>-t 【显示压缩文件的内容】</li>
+<li>-z 【支持gzip解压文件】</li>
+<li>-j 【支持bzip2解压文件】</li>
+<li>-v 【显示操作过程】</li>
+<li>-f 【指定压缩文件】</li>
+<li>–help 【显示帮助信息】</li>
+</ul>
+<h4 id="具体用法">具体用法</h4><p>解包：tar xvf FileName.tar</p>
+<p>打包：tar cvf FileName.tar DirName/FileName</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#打包文件</span><br><span class="line">[root<span class="variable">@bogon</span> logs]# tar cvf <span class="keyword">error</span>.<span class="keyword">log</span>.tar <span class="keyword">error</span>.<span class="keyword">log</span></span><br><span class="line"><span class="keyword">error</span>.<span class="keyword">log</span></span><br><span class="line">[root<span class="variable">@bogon</span> logs]# <span class="keyword">ls</span></span><br><span class="line">access.<span class="keyword">log</span>  <span class="keyword">error</span>.<span class="keyword">log</span>  <span class="keyword">error</span>.<span class="keyword">log</span>.tar </span><br><span class="line"></span><br><span class="line">#打包文件夹</span><br><span class="line">[root<span class="variable">@bogon</span> nginx]# tar cvf logs.tar logs/</span><br><span class="line">logs/</span><br><span class="line">logs/nginx.pid</span><br><span class="line">logs/<span class="keyword">error</span>.<span class="keyword">log</span></span><br><span class="line">logs/access.<span class="keyword">log</span></span><br><span class="line">[root<span class="variable">@bogon</span> nginx]# <span class="keyword">ls</span></span><br><span class="line">logs  logs.tar  </span><br><span class="line"></span><br><span class="line">#解包文件夹</span><br><span class="line">[root<span class="variable">@bogon</span> opt]# tar xvf logs.tar</span><br><span class="line">logs/</span><br><span class="line">logs/nginx.pid</span><br><span class="line">logs/<span class="keyword">error</span>.<span class="keyword">log</span></span><br><span class="line">logs/access.<span class="keyword">log</span></span><br><span class="line">[root<span class="variable">@bogon</span> opt]# <span class="keyword">ls</span></span><br><span class="line">logs  logs.tar</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/17/linux-command-tar/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/11/17/nginx-2/" itemprop="url">
+                  第一个Openresty例子
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T00:11:45+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/nginx-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/nginx-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="运行openresty的默认配置">运行openresty的默认配置</h3><p>openresty 默认安装nginx的路径是 <em>/usr/local/openresty/nginx</em>。当启动nginx时，默认加载的配置文件是 <em>/usr/local/openresty/nginx/conf/nginx.conf</em>。</p>
+<p>默认配置代码：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建1个进程，一般根据服务器CPU核数设置，比如4核，可以设置为4.</span></span><br><span class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="comment">#nginx运行错误日志路径，默认在 /usr/local/openresty/nginx/logs/erro.log</span></span><br><span class="line"><span class="comment">#可以通过 tail -f 日志路径，查看nginx的实时日志。</span></span><br><span class="line"><span class="title">error_log</span> logs/error.log;</span><br><span class="line"><span class="title">events</span> &#123;</span><br><span class="line">    <span class="title">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">http</span> &#123;</span><br><span class="line">    <span class="title">server</span> &#123;</span><br><span class="line">        <span class="comment">#监听80端口</span></span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="comment">#匹配任何路径</span></span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">            <span class="title">default_type</span> <span class="string">'text/html'</span>;</span><br><span class="line">            <span class="comment">#运行lua代码</span></span><br><span class="line">            <span class="title">content_by_lua</span> <span class="string">'ngx.say("hello openresty")'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行nginx</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#默认读取 <span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/conf/</span>nginx.conf</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/openresty/</span>nginx<span class="regexp">/sbin/</span>nginx</span><br></pre></td></tr></table></figure>
+<p>在浏览器上输入<a href="http://localhost，界面显示">http://localhost，界面显示</a> <em>hello openresty</em> 表示nginx运行成功。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/17/nginx-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/11/17/nginx-1/" itemprop="url">
+                  nginx-1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T00:05:16+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/nginx-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/nginx-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/11/17/nginx-index/" itemprop="url">
+                  Nginx知识索引
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T00:05:04+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/nginx-index/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/nginx-index/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ol>
+<li><a href="/2015/11/17/nginx-1/">安装Nginx/openresty</a></li>
+<li><a href="/2015/11/17/nginx-2/">第一个openresty例子</a></li>
+<li><a href="/2015/11/18/nginx-3/">Nginx配置错误集锦</a></li>
+<li><a href="/2015/11/18/nginx-4/">Nginx配置常用参数介绍</a></li>
+<li><a href="nginx5">通过配置CPU参数 worker_cpu_affinity 提升nginx性能(转载)</a></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/11/16/linx-command-df/" itemprop="url">
                   查看磁盘容量(df/du)
                 </a>
@@ -299,436 +703,11 @@
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/16/linux-command-filelook/" itemprop="url">
-                  Linux命令:文件查看操作(cat/more/less/tail)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T14:41:11+08:00" content="2015-11-16">
-              2015-11-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/16/linux-command-filelook/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/linux-command-filelook/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="cat_命令格式">cat 命令格式</h3><p><em>cat [选项] 文件…</em></p>
-<h4 id="命令功能">命令功能</h4><p>用来一次性的显示整个文件的内容。</p>
-<h4 id="常用参数">常用参数</h4><ul>
-<li>-n 【–number 对输出的所有行编号,由1开始对所有输出的行数编号】</li>
-</ul>
-<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># cat -n test.log</span></span><br><span class="line"><span class="number">1</span>	第一行</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span>	第二行，上面空一行</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span>	第三行，再空一行</span><br><span class="line"><span class="number">6</span>	第四行</span><br><span class="line"><span class="number">7</span>	第五行</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/16/linux-command-filelook/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/10/linux-command-rm/" itemprop="url">
-                  Linux命令:文件目录操作(rm/cp/mv)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-10T12:57:13+08:00" content="2015-11-10">
-              2015-11-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/10/linux-command-rm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-rm/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="rm_命令格式">rm 命令格式</h3><p><em>rm [选项] 文件…</em></p>
-<h4 id="命令功能">命令功能</h4><p>删除一个目录中的一个或多个文件或目录，如果没有使用- r选项，则rm不会删除目录。</p>
-<h4 id="常用参数">常用参数</h4><ul>
-<li>-f 【–force 忽略不存在的文件，从不给出提示】</li>
-<li>-r 【–recursive 指示rm将参数中列出的全部目录和子目录均递归地删除】</li>
-</ul>
-<h4 id="具体用法">具体用法</h4><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">abc1.txt  abc.txt  openresty  rh  test1  test2</span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># rm -rf abc*</span></span><br><span class="line">[root<span class="constant">@bogon</span> <span class="built_in">opt</span>]<span class="preprocessor"># ls</span></span><br><span class="line">openresty  rh  test1  test2</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/10/linux-command-rm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/10/linux-command-mkdir/" itemprop="url">
-                  Linux命令:文件目录操作(mkdir/touch)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-10T00:12:11+08:00" content="2015-11-10">
-              2015-11-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/10/linux-command-mkdir/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/linux-command-mkdir/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="mkdir_命令格式">mkdir 命令格式</h3><p><em>mkdir [选项] 目录…</em></p>
-<h4 id="命令功能">命令功能</h4><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</p>
-<h4 id="常用参数">常用参数</h4><ul>
-<li>-m 【设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask】</li>
-<li>-p 【可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录】</li>
-<li>-v 【每次创建新目录都显示信息】</li>
-</ul>
-<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon opt]<span class="preprocessor"># mkdir -m <span class="number">777</span>  test1</span></span><br><span class="line">[root@bogon opt]<span class="preprocessor"># ls -l</span></span><br><span class="line">总用量 <span class="number">12</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">22</span> <span class="number">2013</span> rh</span><br><span class="line">drwxrwxrwx. <span class="number">2</span> root root <span class="number">4096</span> <span class="number">11</span>月 <span class="number">10</span> <span class="number">00</span>:<span class="number">06</span> test1</span><br></pre></td></tr></table></figure>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@bogon</span> opt]<span class="comment"># mkdir -vp test2/test3</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2"</span></span><br><span class="line"><span class="keyword">mkdir</span>: 已创建目录 <span class="string">"test2/test3"</span></span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/10/linux-command-mkdir/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/09/linux-command-index/" itemprop="url">
-                  Linux命令文章索引
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-09T23:45:18+08:00" content="2015-11-09">
-              2015-11-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/09/linux-command-index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/linux-command-index/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h3 id="操作文件目录">操作文件目录</h3><ol>
-<li><a href="/2015/11/05/linux-command-ls/">ls 命令</a></li>
-<li><a href="/2015/11/10/linux-command-mkdir/">mkdir/touch 命令</a></li>
-<li><a href="/2015/11/10/linux-command-rm/">rm/cp/mv 命令</a></li>
-<li><a href="/2015/11/16/linux-command-filelook/">cat/more/less/tail 命令</a></li>
-</ol>
-<h3 id="查看磁盘容量">查看磁盘容量</h3><ol>
-<li><a href="/2015/11/16/linux-command-df/">df/du 命令</a></li>
-</ol>
-<h3 id="压缩解压文件或文件夹">压缩解压文件或文件夹</h3><ol>
-<li><a href="/2015/11/17/linux-command-tar/">tar 命令</a></li>
-</ol>
-<h3 id="用户账户和权限">用户账户和权限</h3><ol>
-<li><a href="/2015/11/18/linux-command-user/">用户、用户组、权限</a></li>
-</ol>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -769,7 +748,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
