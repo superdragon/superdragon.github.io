@@ -211,6 +211,122 @@
             
             
               
+                <a class="post-title-link" href="/2015/11/18/linux-command-user/" itemprop="url">
+                  linux用户、用户组、权限
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-18T11:32:19+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/linux-command-user/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/linux-command-user/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="用户组分类">用户组分类</h3><ol>
+<li>管理员root: 具有使用系统所有权限的用户,其UID 为0.</li>
+<li>普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.</li>
+<li>系统用户: 保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.</li>
+</ol>
+<p>与用户有关的文件/etc/passwd, /etc/shadow</p>
+<p><em>/etc/passwd</em> 保存账户的基本信息</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">dragon:</span><span class="symbol">x:</span><span class="number">500</span><span class="symbol">:</span><span class="number">500</span><span class="symbol">:</span><span class="symbol">:/home/dragon</span><span class="symbol">:/bin/bash</span></span><br><span class="line"><span class="symbol">test1:</span><span class="symbol">x:</span><span class="number">501</span><span class="symbol">:</span><span class="number">501</span><span class="symbol">:</span><span class="symbol">:/home/test1</span><span class="symbol">:/bin/bash</span></span><br><span class="line"><span class="symbol">test2:</span><span class="symbol">x:</span><span class="number">502</span><span class="symbol">:</span><span class="number">501</span><span class="symbol">:</span><span class="symbol">:/home/test2</span><span class="symbol">:/bin/bash</span></span><br></pre></td></tr></table></figure>
+<p>每个位置的意义：</p>
+<ol>
+<li>账号</li>
+<li>密码占位符(密码存放在/etc/shadow)</li>
+<li>用户ID号 UID</li>
+<li>用户组ID号 GID</li>
+<li>用户详细信息</li>
+<li>用户home目录</li>
+<li>编译环境</li>
+</ol>
+<p><em>/etc/shadow</em> 存放用户密码</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/18/linux-command-user/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/11/17/linux-command-tar/" itemprop="url">
                   Linux命令:文件目录打包压缩(tar)
                 </a>
@@ -596,110 +712,6 @@
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/16/linx-command-df/" itemprop="url">
-                  查看磁盘容量(df/du)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-16T16:02:41+08:00" content="2015-11-16">
-              2015-11-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/16/linx-command-df/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/linx-command-df/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="df_命令格式">df 命令格式</h3><p><em>df [选项] 文件</em></p>
-<h4 id="命令功能">命令功能</h4><p>显示指定磁盘文件的可用空间。如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示。</p>
-<h4 id="常用参数">常用参数</h4><ul>
-<li>-h 【以友好方式显示】</li>
-<li>-T 【显示文件系统类型】</li>
-</ul>
-<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df -Th</span><br><span class="line"></span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/xvda1     ext4       <span class="number">20</span>G   <span class="number">12</span>G  <span class="number">7.3</span>G  <span class="number">62</span>% /</span><br><span class="line">udev           devtmpfs  <span class="number">2.0</span>G  <span class="number">4.0</span>K  <span class="number">2.0</span>G   <span class="number">1</span>% /dev</span><br><span class="line">tmpfs          tmpfs     <span class="number">370</span>M  <span class="number">256</span>K  <span class="number">370</span>M   <span class="number">1</span>% /run</span><br><span class="line">none           tmpfs     <span class="number">5.0</span>M     <span class="number">0</span>  <span class="number">5.0</span>M   <span class="number">0</span>% /run/lock</span><br><span class="line">none           tmpfs     <span class="number">1.9</span>G     <span class="number">0</span>  <span class="number">1.9</span>G   <span class="number">0</span>% /run/shm</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/16/linx-command-df/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -745,7 +757,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

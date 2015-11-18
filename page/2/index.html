@@ -211,6 +211,110 @@
             
             
               
+                <a class="post-title-link" href="/2015/11/16/linx-command-df/" itemprop="url">
+                  查看磁盘容量(df/du)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-16T16:02:41+08:00" content="2015-11-16">
+              2015-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/16/linx-command-df/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/linx-command-df/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="df_命令格式">df 命令格式</h3><p><em>df [选项] 文件</em></p>
+<h4 id="命令功能">命令功能</h4><p>显示指定磁盘文件的可用空间。如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示。</p>
+<h4 id="常用参数">常用参数</h4><ul>
+<li>-h 【以友好方式显示】</li>
+<li>-T 【显示文件系统类型】</li>
+</ul>
+<h4 id="具体用法">具体用法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df -Th</span><br><span class="line"></span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/xvda1     ext4       <span class="number">20</span>G   <span class="number">12</span>G  <span class="number">7.3</span>G  <span class="number">62</span>% /</span><br><span class="line">udev           devtmpfs  <span class="number">2.0</span>G  <span class="number">4.0</span>K  <span class="number">2.0</span>G   <span class="number">1</span>% /dev</span><br><span class="line">tmpfs          tmpfs     <span class="number">370</span>M  <span class="number">256</span>K  <span class="number">370</span>M   <span class="number">1</span>% /run</span><br><span class="line">none           tmpfs     <span class="number">5.0</span>M     <span class="number">0</span>  <span class="number">5.0</span>M   <span class="number">0</span>% /run/lock</span><br><span class="line">none           tmpfs     <span class="number">1.9</span>G     <span class="number">0</span>  <span class="number">1.9</span>G   <span class="number">0</span>% /run/shm</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/16/linx-command-df/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/11/16/linux-command-filelook/" itemprop="url">
                   Linux命令:文件查看操作(cat/more/less/tail)
                 </a>
@@ -596,115 +700,12 @@
 <h3 id="压缩解压文件或文件夹">压缩解压文件或文件夹</h3><ol>
 <li><a href="/2015/11/17/linux-command-tar/">tar 命令</a></li>
 </ol>
+<h3 id="用户账户和权限">用户账户和权限</h3><ol>
+<li><a href="/2015/11/18/linux-command-user/">用户、用户组、权限</a></li>
+</ol>
 
             
           </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/11/05/linux-command-ls/" itemprop="url">
-                  Linux命令:文件目录操作(ls)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-05T11:28:12+08:00" content="2015-11-05">
-              2015-11-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/05/linux-command-ls/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/linux-command-ls/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="命令格式">命令格式</h3><p><em>ls [选项] [目录名]</em></p>
-<h3 id="命令功能">命令功能</h3><p>列出目标目录中所有的子目录和文件。</p>
-<h3 id="常用参数">常用参数</h3><ul>
-<li>-a 【–all 列出目录下的所有文件，包括以 . 开头的隐含文件】</li>
-<li>-A 【同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)】</li>
-<li>-l 【除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来】</li>
-<li>-h 【–human-readable 以容易理解的格式列出文件大小(例如 1K 234M 2G)】</li>
-<li>-S 【根据文件大小排序】</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/05/linux-command-ls/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -768,7 +769,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

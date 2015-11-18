@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,Linux命令," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="用户组分类
+管理员root: 具有使用系统所有权限的用户,其UID 为0.
+普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.
+系统用户: 保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.
+
+与用户有关的文件/etc/passwd, /etc/shadow
+/etc/passwd 保存账户的基本信息
+123dragon:x:500:500::/h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux用户、用户组、权限">
+<meta property="og:url" content="http://yoursite.com/2015/11/18/linux-command-user/index.html">
+<meta property="og:site_name" content="DaLong’life">
+<meta property="og:description" content="用户组分类
+管理员root: 具有使用系统所有权限的用户,其UID 为0.
+普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.
+系统用户: 保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.
+
+与用户有关的文件/etc/passwd, /etc/shadow
+/etc/passwd 保存账户的基本信息
+123dragon:x:500:500::/h">
+<meta property="og:updated_time" content="2015-11-18T06:40:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux用户、用户组、权限">
+<meta name="twitter:description" content="用户组分类
+管理员root: 具有使用系统所有权限的用户,其UID 为0.
+普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.
+系统用户: 保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.
+
+与用户有关的文件/etc/passwd, /etc/shadow
+/etc/passwd 保存账户的基本信息
+123dragon:x:500:500::/h">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> linux用户、用户组、权限 | DaLong’life </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4877b402ea906c6a56f899afee6c0840";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DaLong’life</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux用户、用户组、权限
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-18T11:32:19+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/linux-command-user/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/linux-command-user/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="用户组分类">用户组分类</h3><ol>
+<li>管理员root: 具有使用系统所有权限的用户,其UID 为0.</li>
+<li>普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.</li>
+<li>系统用户: 保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.</li>
+</ol>
+<p>与用户有关的文件/etc/passwd, /etc/shadow</p>
+<p><em>/etc/passwd</em> 保存账户的基本信息</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">dragon:</span><span class="symbol">x:</span><span class="number">500</span><span class="symbol">:</span><span class="number">500</span><span class="symbol">:</span><span class="symbol">:/home/dragon</span><span class="symbol">:/bin/bash</span></span><br><span class="line"><span class="symbol">test1:</span><span class="symbol">x:</span><span class="number">501</span><span class="symbol">:</span><span class="number">501</span><span class="symbol">:</span><span class="symbol">:/home/test1</span><span class="symbol">:/bin/bash</span></span><br><span class="line"><span class="symbol">test2:</span><span class="symbol">x:</span><span class="number">502</span><span class="symbol">:</span><span class="number">501</span><span class="symbol">:</span><span class="symbol">:/home/test2</span><span class="symbol">:/bin/bash</span></span><br></pre></td></tr></table></figure>
+<p>每个位置的意义：</p>
+<ol>
+<li>账号</li>
+<li>密码占位符(密码存放在/etc/shadow)</li>
+<li>用户ID号 UID</li>
+<li>用户组ID号 GID</li>
+<li>用户详细信息</li>
+<li>用户home目录</li>
+<li>编译环境</li>
+</ol>
+<p><em>/etc/shadow</em> 存放用户密码</p>
+<a id="more"></a>
+<h3 id="新建用户">新建用户</h3><p><em>useradd 用户名</em>  用户组默认和用户名相同，自动在home下面创建test3用户目录。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd test3</span><br><span class="line"></span><br><span class="line"><span class="comment">#在passwd中的格式如下</span></span><br><span class="line"><span class="symbol">test3:</span><span class="symbol">x:</span><span class="number">503</span><span class="symbol">:</span><span class="number">503</span><span class="symbol">:</span><span class="symbol">:/home/test3</span><span class="symbol">:/bin/bash</span></span><br></pre></td></tr></table></figure>
+<p><em>useradd -g 用户组 用户名</em> 添加账户并归属到某用户组，此用户组必须已存在。</p>
+<p><em>passwd 用户名</em> 修改或者初始化用户密码，如果设置的密码过于简单，系统会提示你，但仍然可用。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">useradd -g test3 test4</span><br><span class="line"></span><br><span class="line"><span class="comment">#503代表的就是GID,即用户组test3</span></span><br><span class="line"><span class="symbol">test4:</span><span class="symbol">x:</span><span class="number">504</span><span class="symbol">:</span><span class="number">503</span><span class="symbol">:</span><span class="symbol">:/home/test4</span><span class="symbol">:/bin/bash</span></span><br><span class="line"></span><br><span class="line">[root<span class="variable">@bogon</span> ~]<span class="comment"># passwd test3</span></span><br><span class="line">更改用户 test3 的密码 。</span><br><span class="line">新的 密码：</span><br><span class="line">无效的密码： 过于简单化/系统化</span><br><span class="line">无效的密码： 过于简单</span><br><span class="line">重新输入新的 密码：</span><br><span class="line">passwd： 所有的身份验证令牌已经成功更新。</span><br></pre></td></tr></table></figure>
+<h3 id="删除用户">删除用户</h3><p><em>userdel [-r] 用户名</em> 删除账户，如果加-r，会同时删除用户的home目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]<span class="comment"># userdel -r  test4</span></span><br><span class="line">[root@bogon ~]<span class="comment"># ls /home/</span></span><br><span class="line"><span class="built_in">test</span>1  <span class="built_in">test</span>2  <span class="built_in">test</span>3</span><br></pre></td></tr></table></figure>
+<h3 id="修改用户">修改用户</h3><p><em>usermod -l 新用户名 原用户名</em> 修改用户名称，但home下的目录名不修改，如需修改，可以用 mv 命令修改。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usermod -l test5 test3</span><br><span class="line"></span><br><span class="line"><span class="symbol">test5:</span><span class="symbol">x:</span><span class="number">503</span><span class="symbol">:</span><span class="number">503</span><span class="symbol">:</span><span class="symbol">:/home/test3</span><span class="symbol">:/bin/bash</span></span><br></pre></td></tr></table></figure>
+<h3 id="查询用户">查询用户</h3><p><em>id 用户名</em></p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">root@bogon</span> ~]# id test5</span><br><span class="line">uid=503<span class="list">(<span class="keyword">test5</span>)</span> gid=503<span class="list">(<span class="keyword">test3</span>)</span> 组=503<span class="list">(<span class="keyword">test3</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="用户权限">用户权限</h3><p>文件或目录的访问权限分为只读，只写和可执行三种。分别是r，w，x。数字代替是4，2，1。如果非自己账户登录时，想访问自己的目录，那么必须是 x 权限才行。</p>
+<p>每个文件或者目录都用三组不同类型的用户访问权限，分别是自己，同组用户，其他用户。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drwx------. <span class="number">4</span> test1  test1   <span class="number">4096</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">11</span>:<span class="number">49</span> test1</span><br></pre></td></tr></table></figure>
+<p>每个文件或目录的权限都有10个‘-’标示。</p>
+<ol>
+<li>第1个：代表是目录还是文件，d=目录，-=文件</li>
+<li>第2-4个：代表自己拥有的权限。</li>
+<li>第5-7个：代表同组拥有的权限。</li>
+<li>第8-10个：代表其他拥有的权限。</li>
+</ol>
+<p>例如上面的例子：只有test1用户能够访问并读写此目录，同组和其他用户无任何操作权限。</p>
+<h3 id="修改权限">修改权限</h3><p><em>chmod [-R] 目录或文件名称</em> 修改某个目录或者文件的权限，加 -R 则会一起修改子目录及子文件夹的权限。</p>
+<p>例如：用test1账户登录，在/home/test1目录下创建test目录，在/home/test1/test目录下创建test.txt文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">test</span>1@bogon ~]$ mkdir <span class="built_in">test</span></span><br><span class="line">[<span class="built_in">test</span>1@bogon ~]$ <span class="built_in">cd</span> <span class="built_in">test</span>/</span><br><span class="line">[<span class="built_in">test</span>1@bogon <span class="built_in">test</span>]$ touch test.txt</span><br><span class="line"></span><br><span class="line">[<span class="built_in">test</span>1@bogon <span class="built_in">test</span>]$ ls <span class="operator">-l</span></span><br><span class="line">总用量 <span class="number">0</span></span><br><span class="line">-rw-rw-r--. <span class="number">1</span> <span class="built_in">test</span>1 <span class="built_in">test</span>1 <span class="number">0</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> test.txt</span><br><span class="line">[<span class="built_in">test</span>1@bogon <span class="built_in">test</span>]$ <span class="built_in">cd</span> ..</span><br><span class="line">[<span class="built_in">test</span>1@bogon ~]$ ls <span class="operator">-l</span></span><br><span class="line">总用量 <span class="number">4</span></span><br><span class="line">drwxrwxr-x. <span class="number">2</span> <span class="built_in">test</span>1 <span class="built_in">test</span>1 <span class="number">4096</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>test.txt文件，自己和同组用户都有可读可写权限，其他用户只有可读权限。</li>
+<li>test目录，自己和同组用户都有所有权限，其他用户只有访问权限。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[test1@bogon ~]$ chmod <span class="number">755</span> test</span><br><span class="line">[test1@bogon ~]$ ls -l</span><br><span class="line">总用量 <span class="number">4</span></span><br><span class="line">drwxr-xr-x. <span class="number">2</span> test1 test1 <span class="number">4096</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> test</span><br><span class="line"></span><br><span class="line">[test1@bogon test]$ ls -l</span><br><span class="line">总用量 <span class="number">0</span></span><br><span class="line">-rw-rw-r--. <span class="number">1</span> test1 test1 <span class="number">0</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> test.txt</span><br></pre></td></tr></table></figure>
+<p>test目录，自己有所有权限，同组用户和其他用户只有访问和可读权限。在没有加[-R]可选项时，test目录中的text.txt子文件的权限并没有变化。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[test1@bogon ~]$ chmod -R <span class="number">766</span> test</span><br><span class="line">[test1@bogon ~]$ ls -l</span><br><span class="line">总用量 <span class="number">4</span></span><br><span class="line">drwxrw-rw-. <span class="number">2</span> test1 test1 <span class="number">4096</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> test</span><br><span class="line">[test1@bogon ~]$ ls -l test/test.txt</span><br><span class="line">-rwxrw-rw-. <span class="number">1</span> test1 test1 <span class="number">0</span> <span class="number">11</span>月 <span class="number">18</span> <span class="number">14</span>:<span class="number">32</span> test/test.txt</span><br></pre></td></tr></table></figure>
+<p>test目录中的text.txt，自己有所有权限，同组用户和其他用户有可读可写权限。</p>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/xd502djj/archive/2011/11/23/2260094.html" target="_blank" rel="external">http://www.cnblogs.com/xd502djj/archive/2011/11/23/2260094.html</a></p>
+<p><a href="http://www.cnblogs.com/peida/archive/2012/11/29/2794010.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2012/11/29/2794010.html</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/Linux命令/" rel="tag">#Linux命令</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/17/linux-command-tar/" rel="next" title="Linux命令:文件目录打包压缩(tar)">
+                <i class="fa fa-chevron-left"></i> Linux命令:文件目录打包压缩(tar)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/18/linux-command-user/"
+           data-title="linux用户、用户组、权限" data-url="http://yoursite.com/2015/11/18/linux-command-user/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xlrjb.com1.z0.glb.clouddn.com/images/blog/tou_xiang.jpg" alt="Da Long" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Da Long</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">生命不息 折腾不止</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://macshuo.com/" target="_blank">MacTalk</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户组分类"><span class="nav-number">1.</span> <span class="nav-text">用户组分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建用户"><span class="nav-number">2.</span> <span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除用户"><span class="nav-number">3.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改用户"><span class="nav-number">4.</span> <span class="nav-text">修改用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户"><span class="nav-number">5.</span> <span class="nav-text">查询用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户权限"><span class="nav-number">6.</span> <span class="nav-text">用户权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改权限"><span class="nav-number">7.</span> <span class="nav-text">修改权限</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Da Long</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"dragonicoding"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
